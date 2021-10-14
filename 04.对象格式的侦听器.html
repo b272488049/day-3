@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器使用</title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="username" />
+		</div>
+	</body>
+	<script src="lib/vue-2.6.12.js"></script>
+	<script src="lib/jquery-v3.6.0.js"></script>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				username: 'admin'
+			},
+			// 过滤器函数 必须定义在filters节点下
+			// 过滤器本质是函数
+			watch: {
+				username: {
+					handler(newVal, oldVal) {
+						console.log('监听到了', newVal,oldVal)
+					},
+					// 是否自动触发，默认值为false
+					// immediate:true
+				}
+			}
+		})
+	</script>
+</html>
