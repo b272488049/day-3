@@ -16,18 +16,24 @@
 			el: '#app',
 			data: {
 				info: {
-					username: 'admin'
+					username: 'admin',
+					address:{
+						
+					}
 				}
 			},
 			// 过滤器函数 必须定义在filters节点下
 			// 过滤器本质是函数
 			watch: {
-				info:{
-					handler(newVal) {
-						console.log(newVal)
-					},
-					deep: true
+				'info.username'(newVal){
+					console.log(newVal)
 				}
+				// info:{
+				// 	handler(newVal) {
+				// 		console.log(newVal)
+				// 	},
+				// 	deep: true
+				// }
 			}
 		})
 	</script>
