@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器使用</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>message 的内容是: {{message | capi }}</p>
+		</div>
+		<div id="app2">
+			<p>message 的内容是: {{message | capi }}</p>
+		</div>
+	</body>
+	<script src="lib/vue-2.6.12.js"></script>
+	<script>
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				message:'hello vue js'
+			},
+			// 过滤器函数 必须定义在filters节点下
+			// 过滤器本质是函数
+			filters:{
+				// 注意：过滤器函数形参中的val 永远都是管道符前面的值
+				// capi过滤器
+				capi(val){
+					console.log(val)
+					console.log(val.charAt((0)))
+					// charAr方法获取首字母
+					const first = val.charAt(0).toUpperCase()
+					// slice截取字符串
+					const other = val.slice(1)
+					console.log(first)
+					// 过滤器中一定要有返回值
+					return first+other
+				}
+			}
+		})
+		const vm2 = new Vue({
+			el:'#app2',
+			data:{
+				message:'heima'
+			}
+		})
+	</script>
+</html>
